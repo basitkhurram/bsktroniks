@@ -6,7 +6,6 @@ def parser(fname):
     for line in fhandler.readlines():
         if line != "\n":
             aux_line = line.split()
-            #print(aux_line)
             for word in aux_line:
                 words.extend([word.strip("[").strip("(").strip("'").strip('"').strip("'").strip('"').strip(",").strip(".").strip("?").strip("!").strip(")").strip("]").lower()])
     fhandler.close()
@@ -28,12 +27,9 @@ def predictor(words):
 
 def builder(dictionary, size):
     word = random.sample(list(dictionary), 1)[0]
-    #print(word)
     output = " " + word
-    #print(type(dictionary))
     for n in range(200):
         output += " "
-        #print(dictionary[word])
         word = random.choice(dictionary[word]).lower()
         output += word
         if n % 7 == 0:
@@ -41,8 +37,18 @@ def builder(dictionary, size):
     return output
 
 
-fname = "D:/python/bstroniks/mash/66.txt"
+#Initialize the training material to song 66 (arbitrary)
+fname = "mash/66.txt"
 words_comp = parser(fname)
+
+#Songs are in mash folder.
+#Songs are enumerated to help index
+#the training material.
+
+#Enumeration need not be contiguous.
+#For example, certain songs/albums can be
+#commented out to exclude them from
+#the training material.
 
 training = {
     # "cyrus, bangerz":  (1, 16),
@@ -67,7 +73,3 @@ output = builder(dictionary, size)
 foutput = open("test.txt", "w")
 foutput.write(output)
 foutput.close()
-##fname = "D:/python/bstroniks/samples/t4.txt"
-##words = parser(fname)
-##dictionary = predictor(words)
-##output = builder(dictionary)
