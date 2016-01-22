@@ -10,6 +10,6 @@ a flavour similar to that of the training material.
 
 See the sample outputs in the root folder for examples of modified outputs.
 
-NOTE: The lyrics used in the training material are not owned by me.
+*NOTE: The lyrics used in the training material are not owned by me.
 If the origins of the training material are at all unknown to a user,
 the user should not hesistate to contact me for clarification.
